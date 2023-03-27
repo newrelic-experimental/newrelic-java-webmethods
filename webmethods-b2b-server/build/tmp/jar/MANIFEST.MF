@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: com.newrelic.instrumentation.webmethods-b2b-server
-Implementation-Vendor: New Relic
-Implementation-Vendor-Id: com.newrelic
-Implementation-Version: 1.0
-
