@@ -1,0 +1,5 @@
+In order to build this instrumentation, you need access to an instance of WebMethods.
+Find the following jar files (xxxxxxxx refers to a version number) and include them in this directory
+
+com.softwareag.mom.is.client_xxxxxxxx.jar
+wm-isserver.jar
