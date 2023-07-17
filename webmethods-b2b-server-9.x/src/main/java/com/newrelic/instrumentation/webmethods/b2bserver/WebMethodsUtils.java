@@ -10,6 +10,8 @@ import com.newrelic.agent.config.AgentConfigListener;
 import com.newrelic.agent.service.ServiceFactory;
 import com.newrelic.api.agent.Config;
 import com.newrelic.api.agent.NewRelic;
+import com.wm.driver.comm.b2b.WmMessage;
+import com.wm.io.comm.IMessage;
 import com.wm.lang.flow.FlowElement;
 import com.wm.lang.flow.FlowRoot;
 import com.wm.lang.flow.FlowState;
@@ -75,6 +77,16 @@ public class WebMethodsUtils implements AgentConfigListener {
 		
 		nameList.toArray(namesArray);
 		return namesArray;
+	}
+	
+	public static void addIMessage(Map<String,Object> attributes, IMessage message) {
+		if(message != null) {
+			addValue(attributes, "IMessage-Command", message.getCommand());
+			if(message instanceof WmMessage) {
+				addValue(attributes, "IMessage-ContentType", ((WmMessage)message).getContentType());
+			}
+			addValue(attributes, "IMessage-UUID", message.getUUID());
+		}
 	}
 	
 	private static void processConfig(Config config) {

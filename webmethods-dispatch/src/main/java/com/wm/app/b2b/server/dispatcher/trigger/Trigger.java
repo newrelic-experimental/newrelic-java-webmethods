@@ -14,7 +14,7 @@ public abstract class Trigger {
 
 	public abstract String getName();
 	
-	@Trace(dispatcher = true)
+	@Trace
 	public boolean processMessage(IMessage msg)  {
 		NewRelic.getAgent().getTracedMethod().setMetricName("Custom","WebMethods","Dispatcher","Trigger",getName());
 		WmMessageHeaders headers = new WmMessageHeaders(msg);
