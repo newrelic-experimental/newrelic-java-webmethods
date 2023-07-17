@@ -5,11 +5,15 @@ import java.util.HashMap;
 
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
+import com.newrelic.api.agent.Transaction;
+import com.newrelic.api.agent.TransportType;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
+import com.newrelic.instrumentation.webmethods.b2bserver.HTTPHeaderWrapper;
 import com.newrelic.instrumentation.webmethods.b2bserver.WebMethodsUtils;
 import com.wm.lang.ns.NSName;
 import com.wm.lang.websvc.WSOperation;
+import com.wm.net.HttpHeader;
 
 @Weave
 public abstract class WebServicesProcessImpl {
@@ -23,6 +27,19 @@ public abstract class WebServicesProcessImpl {
 	
 	@Trace(dispatcher = true)
 	public boolean process(ProtocolState _state) throws IOException, AccessException {
+		String requestURL = _state.getRequestUrl();
+		if(requestURL != null && !requestURL.isEmpty()) {
+			NewRelic.getAgent().getTracedMethod().addCustomAttribute("RequestURL", requestURL);
+		}
+		Transaction transaction = NewRelic.getAgent().getTransaction();
+		if(!transaction.isWebTransaction()) {
+			transaction.convertToWebTransaction();
+		}
+		HttpHeader header = _state.getRequestHeader();
+		if(header != null) {
+			HTTPHeaderWrapper wrapper = new HTTPHeaderWrapper(header);
+			transaction.acceptDistributedTraceHeaders(TransportType.HTTP, wrapper);
+		}
 		try {
 			boolean b = Weaver.callOriginal();
 			String[] metricName = WebMethodsUtils.getMetricName("Custom","WebServicesProcessImpl","process",interfaceName,opName);
