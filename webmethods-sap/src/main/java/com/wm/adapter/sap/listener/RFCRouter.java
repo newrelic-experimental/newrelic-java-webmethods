@@ -17,7 +17,7 @@ import com.wm.data.IDataCursor;
 @Weave
 public abstract class RFCRouter {
 
-	@Trace
+	@Trace(dispatcher = true)
 	public static void inboundProcess(RFCListener rfcL, String rfcName, String svcName, IData pipeline, String tid, int action) {
 		List<String> names = new ArrayList<>();
 		names.add("Custom/WebMethods/SAPAdapter/RFCRouter");
@@ -45,6 +45,7 @@ public abstract class RFCRouter {
 			if(list != null) {
 				HashMap<String, Object> attributes = new HashMap<>();
 				WMSAPUtils.addIDocDocumentList(attributes, list);
+				WMSAPUtils.addAttribute(attributes, "TID", tid);
 				NewRelic.getAgent().getInsights().recordCustomEvent("WM_IDOCLIST", attributes);
 				
 				

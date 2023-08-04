@@ -2,6 +2,7 @@ package com.wm.adapter.sap.lino;
 
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
+import com.newrelic.api.agent.TransactionNamePriority;
 import com.newrelic.api.agent.weaver.MatchType;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
@@ -16,6 +17,7 @@ public abstract class BasicSyncListenerNotification {
 	@Trace
 	protected NotificationResults process(String tid, IData pipeline) {
 		NewRelic.getAgent().getTracedMethod().setMetricName("Custom","WebMethods","SAP","BasicSyncListenerNotification",receiveServiceName());
+		NewRelic.getAgent().getTransaction().setTransactionName(TransactionNamePriority.CUSTOM_LOW, true, "SAP-Inbound", "WebMethods","SAP","Inbound",receiveServiceName());
 		return Weaver.callOriginal();
 	}
 }
