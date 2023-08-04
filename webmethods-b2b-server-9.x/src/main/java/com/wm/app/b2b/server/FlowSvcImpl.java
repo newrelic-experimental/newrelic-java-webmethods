@@ -2,7 +2,6 @@ package com.wm.app.b2b.server;
 
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
-import com.newrelic.api.agent.TransactionNamePriority;
 import com.newrelic.api.agent.weaver.MatchType;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
@@ -27,13 +26,12 @@ public abstract class FlowSvcImpl extends BaseService {
 
 	public abstract String getParentWSD();
 
-	@Trace(dispatcher = true)
+	@Trace
 	public IData baseInvoke(IData var1) throws Exception {
 		NSName n = getNSName();
 		String name = n!= null ? n.toString() : null;
 		if(name != null) {
 			NewRelic.getAgent().getTracedMethod().setMetricName("Custom","WebMethods","FlowSvcImpl",name,"baseInvoke");
-			NewRelic.getAgent().getTransaction().setTransactionName(TransactionNamePriority.FRAMEWORK_HIGH, false, "FlowService", "Flow",name);
 		}
 		try {
 			return Weaver.callOriginal();

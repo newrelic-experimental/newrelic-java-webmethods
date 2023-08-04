@@ -17,7 +17,7 @@ public abstract class InvokeManager {
 	@Trace(dispatcher = true)
 	protected IData invoke(BaseService se, IData input, boolean inReinvoke, AuditRuntimeInfo aRuntimeInfo) {
 		NSName serviceName = se.getNSName();
-		boolean ignore = WebMethodsUtils.servicesToIgnore.contains(serviceName.getFullName());
+		boolean ignore = WebMethodsUtils.ignore(serviceName.getFullName());
 		if(ignore) {
 			NewRelic.getAgent().getTransaction().ignore();
 		} else {

@@ -29,7 +29,7 @@ public abstract class JavaService extends BaseService {
 	public abstract String getMethodName();
 	
 
-	@Trace(dispatcher = true)
+	@Trace
 	public IData baseInvoke(IData var1) throws Exception {
 		NSName n = getNSName();
 		String name = n!= null ? n.toString() : null;

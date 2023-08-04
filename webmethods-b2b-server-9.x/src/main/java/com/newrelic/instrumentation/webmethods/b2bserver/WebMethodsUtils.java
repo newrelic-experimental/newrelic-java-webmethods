@@ -22,7 +22,7 @@ public class WebMethodsUtils implements AgentConfigListener {
 	private static final String SERVICE_IGNORE = "webmethods.services.ignore";
 	private static final String PACKAGE_LIST = "wm.server.packages:packageList";
 	
-	public static final List<String> servicesToIgnore;
+	protected static final List<String> servicesToIgnore;
 	
 	static {
 		ServiceFactory.getConfigService().addIAgentConfigListener(new WebMethodsUtils());
@@ -48,6 +48,15 @@ public class WebMethodsUtils implements AgentConfigListener {
 			}
 			attributes.put(key, value);
 		}
+	}
+	
+	public static boolean ignore(String service) {
+		for(String serviceRegEx : servicesToIgnore) {
+			if(service.matches(serviceRegEx)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static void addFlowElement(Map<String,Object> attributes, FlowElement element) {
