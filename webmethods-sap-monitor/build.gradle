@@ -18,11 +18,11 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.labs.webmethods-sap-monitor'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.webmethods-sap-monitor'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0
-	attributes 'Agent-Class': 'com.newrelic.instrumentation.labs.labs.webmethods.sap.montior.WMSAPPreMain'
+	attributes 'Agent-Class': 'com.newrelic.instrumentation.labs.webmethods.sap.montior.WMSAPPreMain'
   }
 }
 

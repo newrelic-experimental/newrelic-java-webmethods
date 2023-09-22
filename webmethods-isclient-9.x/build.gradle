@@ -18,9 +18,9 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.labs.webmethods-isclient-9.x'
-    attributes 'Implementation-Vendor': 'New Relic Labs Labs'
-    attributes 'Implementation-Vendor-Id': 'com.newrelic.labs.labs'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.webmethods-isclient-9.x'
+    attributes 'Implementation-Vendor': 'New Relic Labs'
+    attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0
   }
 }
