@@ -1,0 +1,11 @@
+In order to build this extension, you need access to a licensed instance of WebMethods and need to find the following jar files and place them in this directory (lib).  Note that xxxxx denotes a version number so use the one appropriate to your environment
+
+
+WMSAP.jar
+com.softwareag.mom.is.client_xxxxx.jar
+sap.com~tc~bl~jco_sapj2ee~runtime.jar
+wmart.jar
+adapter-api-xxxxx.jar
+sap-idoc-1.0.0.jar
+wm-isserver.jar
+
