@@ -1,0 +1,4 @@
+In order to build this extension, you need access to a licensed instance of WebMethods and need to find the following jar files and place them in this directory (lib).  Note that xxxxx denotes a version number so use the one appropriate to your environment
+
+wm-isserver.jar   
+com.softwareag.mom.is.client_xxx.jar    
