@@ -1,0 +1,1 @@
+adapter-api-10.11.0.0.jar
