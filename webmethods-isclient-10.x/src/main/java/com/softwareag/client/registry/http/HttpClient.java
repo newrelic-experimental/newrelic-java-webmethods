@@ -7,7 +7,7 @@ import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
-import com.newrelic.instrumentation.webmethods.isclient.OutboundWrapper;
+import com.newrelic.instrumentation.webmethods10.isclient.OutboundWrapper;
 import com.wm.net.HttpContext;
 
 @Weave

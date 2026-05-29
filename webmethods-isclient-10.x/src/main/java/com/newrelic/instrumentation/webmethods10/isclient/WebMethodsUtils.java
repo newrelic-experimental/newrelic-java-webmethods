@@ -1,4 +1,4 @@
-package com.newrelic.instrumentation.webmethods.isclient;
+package com.newrelic.instrumentation.webmethods10.isclient;
 
 import java.util.ArrayList;
 import java.util.List;

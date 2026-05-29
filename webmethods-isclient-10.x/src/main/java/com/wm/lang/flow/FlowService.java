@@ -6,7 +6,7 @@ import com.newrelic.api.agent.TransactionNamePriority;
 import com.newrelic.api.agent.weaver.MatchType;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
-import com.newrelic.instrumentation.webmethods.isclient.WebMethodsUtils;
+import com.newrelic.instrumentation.webmethods10.isclient.WebMethodsUtils;
 import com.wm.data.IData;
 import com.wm.lang.ns.NSName;
 import com.wm.lang.ns.NSPackage;

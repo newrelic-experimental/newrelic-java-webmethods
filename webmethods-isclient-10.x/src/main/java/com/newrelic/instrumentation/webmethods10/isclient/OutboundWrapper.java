@@ -1,4 +1,4 @@
-package com.newrelic.instrumentation.webmethods.isclient;
+package com.newrelic.instrumentation.webmethods10.isclient;
 
 import com.newrelic.api.agent.HeaderType;
 import com.newrelic.api.agent.OutboundHeaders;

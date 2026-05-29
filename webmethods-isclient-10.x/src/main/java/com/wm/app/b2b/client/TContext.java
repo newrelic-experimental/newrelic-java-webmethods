@@ -4,7 +4,7 @@ import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
-import com.newrelic.instrumentation.webmethods.isclient.WebMethodsUtils;
+import com.newrelic.instrumentation.webmethods10.isclient.WebMethodsUtils;
 import com.wm.data.IData;
 import com.wm.util.Values;
 
