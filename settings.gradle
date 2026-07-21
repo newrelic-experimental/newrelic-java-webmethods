@@ -1,4 +1,4 @@
-rootProject.name = 'java-instrumentation-template'
+rootProject.name = 'webmethods-instrumentation'
 include 'webmethods-isclient-10.x'
 include 'webmethods-isclient-9.x'
 include 'webmethods-b2b-server-10.x'
