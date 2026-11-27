@@ -10,7 +10,9 @@ import com.newrelic.agent.config.AgentConfigListener;
 import com.newrelic.agent.service.ServiceFactory;
 import com.newrelic.api.agent.Config;
 import com.newrelic.api.agent.NewRelic;
+import com.newrelic.api.agent.TransportType;
 import com.wm.driver.comm.b2b.WmMessage;
+import com.wm.net.HttpHeader;
 import com.wm.io.comm.IMessage;
 import com.wm.lang.flow.FlowElement;
 import com.wm.lang.flow.FlowRoot;
@@ -79,6 +81,13 @@ public class WebMethodsUtils implements AgentConfigListener {
 		return namesArray;
 	}
 	
+	public static void acceptInboundHeaders(HttpHeader header) {
+		if (header != null) {
+			HTTPHeaderWrapper wrapper = new HTTPHeaderWrapper(header);
+			NewRelic.getAgent().getTransaction().acceptDistributedTraceHeaders(TransportType.HTTP, wrapper);
+		}
+	}
+
 	public static void addIMessage(Map<String,Object> attributes, IMessage message) {
 		if(message != null) {
 			addValue(attributes, "IMessage-Command", message.getCommand());
