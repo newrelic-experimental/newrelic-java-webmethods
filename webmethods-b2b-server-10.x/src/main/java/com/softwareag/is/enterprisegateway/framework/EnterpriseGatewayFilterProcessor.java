@@ -18,6 +18,7 @@ public abstract class EnterpriseGatewayFilterProcessor {
 
 	@Trace(dispatcher = true)
 	public void processFilter(HTTPState var1, EnterpriseGatewayFilter var2, EnterpriseGatewayAlert var3, HttpHeader var4, List<MultipartParsedContent.PartContent> var5) {
+		WebMethodsUtils.acceptInboundHeaders(var1.getRequestHeader());
 		HashMap<String, Object> attributes = new HashMap<>();
 		WebMethodsUtils.addValue(attributes, "ReqUrl", var1.getReqUrl());
 		WebMethodsUtils.addValue(attributes, "RequestURL", var1.getRequestUrl());
